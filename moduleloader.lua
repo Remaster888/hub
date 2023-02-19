@@ -1,5 +1,6 @@
 getgenv().modules = modules or print("loading") or {
     status = "loading",
+    files = {},
     latest = {
         ["script.lua"] = "0.0",
         ["loader.lua"] = "0.0",
@@ -12,9 +13,8 @@ getgenv().modules = modules or print("loading") or {
     }
 }
 
-local files = {}
 for _, scriptName in next, modules.scripts do
-    files[scriptName] = game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/" .. scriptName, true)
+    modules.files[scriptName] = game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/" .. scriptName, true)
 end
 
 modules.getModule = setmetatable({}, {__index = function(self, index)
@@ -32,7 +32,7 @@ modules.getModule = setmetatable({}, {__index = function(self, index)
         if not file or file.version ~= modules.latest[index] then
             modules.status = not file and "downloading " .. index or "updating " .. index
             print(modules.status)
-            file = files[index]
+            file = modules.files[index]
             writefile(index, file)
             file = loadstring(file)()
         end
