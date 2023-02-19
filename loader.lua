@@ -6,7 +6,7 @@ function loader.loadOnActor()
     local run_on_actor = run_on_actor or syn and syn.run_on_actor
     local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport
 
-    if run_on_actor and getactors then
+    if run_on_actor then
         for _, actor in next, getactors() do
             if actor.Name ~= "Instance" then
                 run_on_actor(actor, modules.getModule.script)
