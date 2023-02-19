@@ -16,7 +16,6 @@ getgenv().modules = modules or print("loading") or {
 
 if not isfolder("remaster") then
     makefolder("remaster")
-    writefile("remaster\\credits.txt", "written by iRay#1488")
 end
 
 for _, scriptName in next, modules.scripts do
