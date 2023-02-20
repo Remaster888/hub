@@ -25,7 +25,7 @@ end
 
 for _, scriptName in next, modules.scripts do
     modules.files[scriptName] = game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/" .. scriptName, true)
-    modules.savedFiles[scriptName] = ({pcall(readfile, "remaster\\" .. index)})[2]
+    modules.savedFiles[scriptName] = ({pcall(readfile, "remaster\\" .. scriptName)})[2]
 end
 
 modules.getModule = setmetatable({}, {__index = function(self, index)
