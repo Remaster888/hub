@@ -42,8 +42,8 @@ modules.getModule = setmetatable({}, {__index = function(self, index)
         if not file or file.version ~= modules.latest[index] then
             modules.status = not file and "downloading " .. index or "updating " .. index
             print(modules.status)
-            file = modules.files[index]
-            writefile("remaster\\" .. string.gsub(index, ".lua", ""), file)
+            file = modules.files[string.gsub(index, ".lua", "")]
+            writefile("remaster\\" .. index, file)
             file = loadstring(file)()
         end
 
