@@ -1,4 +1,4 @@
-getgenv().modules = pcall(unload) and modules or print("loading") or {
+getgenv().modules = modules and modules.unload() or print("loading") or {
     version = "0.0",
     status = "loading",
     files = {},
