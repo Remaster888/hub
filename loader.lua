@@ -9,7 +9,7 @@ function loader.loadOnActor()
     if run_on_actor then
         for _, actor in next, getactors() do
             if actor.Name ~= "Instance" then
-                run_on_actor(actor, modules.getModule.script)
+                run_on_actor(actor, modules.files.script)
             end
         end
     elseif queue_on_teleport then
@@ -54,7 +54,7 @@ function loader.loadOnActor()
                     end);
         
                     wait(7);
-                ]] .. modules.getModule.script)
+                ]] .. modules.files.script)
             end
         end)
         
