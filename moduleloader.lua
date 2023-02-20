@@ -51,6 +51,7 @@ modules.getModule = setmetatable({}, {__index = function(self, index)
         end)
 
         modules.status = "loading"
+        file = type(file) == "string" and loadstring(file)() or file
         rawset(self, startIndex, file)
         return file
     end
