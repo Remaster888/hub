@@ -39,7 +39,7 @@ modules.getModule = setmetatable({}, {__index = function(self, index)
         local file;
 
         pcall(function()
-            file = ({pcall(readfile, "remaster\\" .. index)})[2]; file = file and file ~= "file does not exist" and loadstring(file)()
+            file = readfile("remaster\\" .. index); file = file and file ~= "file does not exist" and loadstring(file)()
             
             if not file or file.version ~= modules.latest[index] then
                 modules.status = not file and "downloading " .. index or "updating " .. index
