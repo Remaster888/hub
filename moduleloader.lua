@@ -3,14 +3,12 @@ getgenv().modules = modules or print("loading") or {
     status = "loading",
     files = {},
     latest = {
-        ["script.lua"] = "0.0",
         ["loader.lua"] = "0.0",
         ["modify.lua"] = "0.0",
         ["pathfinding.lua"] = "0.0",
         ["userinterface.lua"] = "0.0"
     },
     scripts = {
-        "script.lua",
         "loader.lua",
         "modify.lua",
         "pathfinding.lua",
