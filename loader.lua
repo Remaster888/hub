@@ -1,6 +1,10 @@
 local loader = {
-    version = "0.1"
+    version = "0.0"
 }
+
+function loader.load()
+    
+end
 
 function loader.loadOnActor()
     local run_on_actor = run_on_actor or syn and syn.run_on_actor
@@ -9,7 +13,9 @@ function loader.loadOnActor()
     if run_on_actor then
         for _, actor in next, getactors() do
             if actor.Name ~= "Instance" then
-                run_on_actor(actor, modules.files.script)
+                run_on_actor(actor, [[
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/moduleloader.lua", true))():getModule("loader").load();
+                ]])
             end
         end
     elseif queue_on_teleport then
@@ -54,7 +60,8 @@ function loader.loadOnActor()
                     end);
         
                     wait(7);
-                ]] .. modules.files.script)
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/moduleloader.lua", true))():getModule("getModule").loader.load();
+                ]])
             end
         end)
         
