@@ -36,7 +36,8 @@ modules.getModule = setmetatable({}, {__index = function(self, index)
         index = string.gsub(index, ".lua", "") .. ".lua"
         modules.status = "loading " .. index
         print("loading " .. index)
-        local file = ({pcall(readfile, "remaster\\" .. scriptName)})[2]; file = file and file ~= "file does not exist" and loadstring(file)()
+        local file = ({pcall(readfile, "remaster\\" .. index)})[2]; file = file and file ~= "file does not exist" and loadstring(file)()
+                print(file)
 
         if not file or file.version ~= modules.latest[index] then
             modules.status = not file and "downloading " .. index or "updating " .. index
