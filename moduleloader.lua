@@ -26,7 +26,8 @@ for _, scriptName in next, modules.scripts do
     modules.files[string.gsub(scriptName, ".lua", "")] = game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/" .. scriptName, true)
 end
 
-modules.getModule = setmetatable({}, {__index = function(self, index)
+--modules.getModule = setmetatable({}, {__index = function(self, index)
+function modules.getModule(self, index)
     local startIndex = index
     local value = rawget(self, index)
 
@@ -55,6 +56,6 @@ modules.getModule = setmetatable({}, {__index = function(self, index)
         rawset(self, startIndex, file)
         return file
     end
-end})
+end
 
 return modules
