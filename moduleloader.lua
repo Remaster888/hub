@@ -1,4 +1,4 @@
-getgenv().modules = modules and modules.unload() or print("loading") or {
+getgenv().modules = {
     version = "0.0",
     status = "loading",
     files = {},
