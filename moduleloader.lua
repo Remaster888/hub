@@ -23,7 +23,7 @@ if not isfolder("remaster") then
 end
 
 for _, scriptName in next, modules.scripts do
-    modules.files[scriptName] = game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/" .. scriptName, true)
+    modules.files[string.gsub(scriptName, ".lua", "")] = game:HttpGet("https://raw.githubusercontent.com/Remaster888/hub/main/" .. scriptName, true)
 end
 
 modules.getModule = setmetatable({}, {__index = function(self, index)
